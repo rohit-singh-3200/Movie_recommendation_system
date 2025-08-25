@@ -8,8 +8,8 @@ import gdown
 import os
 load_dotenv()
 API_BEARER = os.getenv("API_BEARER")
-movies_url = "https://drive.google.com/file/d/1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe/view?usp=sharing"
-similarity_url = "https://drive.google.com/file/d/16ed_VxFfrJeeZTv21QroL9qaVDdQANMX/view?usp=sharing"
+movies_url = "https://drive.google.com/uc?id=1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe"
+similarity_url = "https://drive.google.com/uc?id=16ed_VxFfrJeeZTv21QroL9qaVDdQANMX"
 
 st.html("<style>[alt='Logo'] { height: 60px !important; }</style>")
 st.logo("https://github.com/rohit-singh-3200/Movie_recommendation_system/blob/main/oflix_logo.png?raw=true")
@@ -138,5 +138,6 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
 
 
