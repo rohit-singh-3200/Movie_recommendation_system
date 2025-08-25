@@ -9,7 +9,7 @@ load_dotenv()
 API_BEARER = os.getenv("API_BEARER")
 
 st.html("<style>[alt='Logo'] { height: 60px !important; }</style>")
-st.logo("C:/Users/Admin/Desktop/Movie recommendation/myapp/oflix_logo.png")
+st.logo("https://github.com/rohit-singh-3200/Movie_recommendation_system/blob/main/oflix_logo.png?raw=true")
 page_bg_img = """ 
 <style>
 [data-testid="stAppViewContainer"] {
@@ -122,5 +122,6 @@ footer = """
     </a>
 </div>
 """
+
 
 st.markdown(footer, unsafe_allow_html=True)
