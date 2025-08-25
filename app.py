@@ -8,8 +8,15 @@ import gdown
 import os
 load_dotenv()
 API_BEARER = os.getenv("API_BEARER")
-movies_url = "https://drive.google.com/uc?id=1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe"
-similarity_url = "https://drive.google.com/uc?id=16ed_VxFfrJeeZTv21QroL9qaVDdQANMX"
+
+# Only download if the file doesn't exist
+if not os.path.exists(movies_file):
+    movies_url = "https://drive.google.com/uc?id=1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe"
+    gdown.download(movies_url, movies_file, quiet=False)
+
+if not os.path.exists(similarity_file):
+    similarity_url = "https://drive.google.com/uc?id=16ed_VxFfrJeeZTv21QroL9qaVDdQANMX"
+    gdown.download(similarity_url, similarity_file, quiet=False)
 
 st.html("<style>[alt='Logo'] { height: 60px !important; }</style>")
 st.logo("https://github.com/rohit-singh-3200/Movie_recommendation_system/blob/main/oflix_logo.png?raw=true")
@@ -34,10 +41,6 @@ st.header("🍿 MOVIE RECOMMENDATION SYSTEM 📽️") # HEADING
 
 movies_file = "movies.pkl"
 similarity_file = "similarity.pkl"
-
-# Download files from Google Drive
-gdown.download(movies_url, "movies.pkl", quiet=False)
-gdown.download(similarity_url, "similarity.pkl", quiet=False)
 
 # Load pickles
 movies = pickle.load(open("movies.pkl", "rb"))
@@ -138,6 +141,7 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
 
 
 
