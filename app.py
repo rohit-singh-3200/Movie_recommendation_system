@@ -51,7 +51,7 @@ selected_movie = st.selectbox('Type or select a movie', movie_list)
 # =====================
 # Fetch Poster
 # =====================
-@st.cache_data
+
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?&language=en-US"
 
@@ -139,6 +139,7 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
 
 
 
