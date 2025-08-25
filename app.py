@@ -89,7 +89,7 @@ def recommend(movie_title, n=5):
         title = movies.iloc[movie[0]].title 
         posters.append(fetch_poster(movie_id))
         names.append(movies.iloc[movie[0]].title)
-        links.append(f"https://www.justwatch.com/in/movie/{title.replace(" ","-").replace(":","-")}")
+        links.append(f"https://www.justwatch.com/in/movie/{title.replace(' ','-').replace(':','-')}')
         time.sleep(1)
 
     return names, posters, links
@@ -139,6 +139,7 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
 
 
 
