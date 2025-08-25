@@ -9,6 +9,9 @@ import os
 load_dotenv()
 API_BEARER = os.getenv("API_BEARER")
 
+movies_file = "movies.pkl"
+similarity_file = "similarity.pkl"
+
 # Only download if the file doesn't exist
 if not os.path.exists(movies_file):
     movies_url = "https://drive.google.com/uc?id=1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe"
@@ -36,11 +39,6 @@ st.markdown(page_bg_img, unsafe_allow_html=True) # to allow streamlit to use css
 
 
 st.header("🍿 MOVIE RECOMMENDATION SYSTEM 📽️") # HEADING
-
-
-
-movies_file = "movies.pkl"
-similarity_file = "similarity.pkl"
 
 # Load pickles
 movies = pickle.load(open("movies.pkl", "rb"))
@@ -141,6 +139,7 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
 
 
 
