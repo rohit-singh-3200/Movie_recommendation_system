@@ -4,6 +4,7 @@ import requests #getting http responses
 import streamlit as st #creating simplke web application
 import time # used regulate function flow and wait timing
 from dotenv import load_dotenv
+import gdown
 import os
 load_dotenv()
 API_BEARER = os.getenv("API_BEARER")
@@ -27,9 +28,17 @@ st.markdown(page_bg_img, unsafe_allow_html=True) # to allow streamlit to use css
 
 st.header("🍿 MOVIE RECOMMENDATION SYSTEM 📽️") # HEADING
 
+movies_url = "https://drive.google.com/file/d/1a9wuaYBeVFCbJlXrMRGKWHpjapOQqupe/view?usp=sharing"
+similarity_url = "https://drive.google.com/file/d/16ed_VxFfrJeeZTv21QroL9qaVDdQANMX/view?usp=sharing"
+
+# Download files from Google Drive
+gdown.download(movies_url, "movies.pkl", quiet=False)
+gdown.download(similarity_url, "similarity.pkl", quiet=False)
+
+# Load pickles
+movies = pickle.load(open("movies.pkl", "rb"))
+similarity = pickle.load(open("similarity.pkl", "rb"))
 # Load data
-movies = pickle.load(open('artifacts/movies.pkl', 'rb'))
-similarity = pickle.load(open('artifacts/similarity.pkl', 'rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox('Type or select a movie', movie_list)
@@ -125,3 +134,4 @@ footer = """
 
 
 st.markdown(footer, unsafe_allow_html=True)
+
